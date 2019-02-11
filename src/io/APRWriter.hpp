@@ -82,10 +82,10 @@ public:
     void read_apr(APR<ImageType>& apr, const std::string &file_name,bool build_tree = false, int max_level_delta = 0) {
 
         APRTimer timer;
-        timer.verbose_flag = false;
+        timer.verbose_flag = true;
 
         APRTimer timer_f;
-        timer_f.verbose_flag = false;
+        timer_f.verbose_flag = true;
 
         AprFile::Operation op;
 
@@ -346,6 +346,9 @@ public:
         if(prev_read_level > 0){
             parts_start = apr.apr_access.global_index_by_level_end[prev_read_level] + 1;
         }
+
+
+
 
         //apr.apr_access.level_max = max_read_level;
 

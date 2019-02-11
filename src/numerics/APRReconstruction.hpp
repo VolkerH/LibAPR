@@ -95,16 +95,15 @@ public:
         int max_dim = std::max(std::max(apr.apr_access.org_dims[1], apr.apr_access.org_dims[0]), apr.apr_access.org_dims[2]);
 
         int max_level = ceil(std::log2(max_dim));
+        max_level = apr.level_max();
 
         max_level = max_level + reconPatch.level_delta;
 
-
         APRIterator<S> apr_iterator(apr);
 
-        int max_img_y = ceil(apr.orginal_dimensions(0)*pow(2.0,reconPatch.level_delta));
-        int max_img_x = ceil(apr.orginal_dimensions(1)*pow(2.0,reconPatch.level_delta));
-        int max_img_z = ceil(apr.orginal_dimensions(2)*pow(2.0,reconPatch.level_delta));
-
+        int max_img_y = ceil(apr.spatial_index_y_max(apr.level_max())*pow(2.0,reconPatch.level_delta));
+        int max_img_x = ceil(apr.spatial_index_x_max(apr.level_max())*pow(2.0,reconPatch.level_delta));
+        int max_img_z = ceil(apr.spatial_index_z_max(apr.level_max())*pow(2.0,reconPatch.level_delta));
 
         if(reconPatch.y_end == -1){
             reconPatch.y_begin = 0;
