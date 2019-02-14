@@ -320,7 +320,7 @@ endif(APR_BUILD_JAVA_WRAPPERS)
 ###############################################################################
 if(APR_BUILD_PYTHON_WRAPPERS)
     message(STATUS "APR: Building PYTHON wrappers")
-    set(PYBIND11_PYTHON_VERSION 2.7)
+    set(PYBIND11_PYTHON_VERSION 3.5)
 
     add_subdirectory("external/pybind11")
 
